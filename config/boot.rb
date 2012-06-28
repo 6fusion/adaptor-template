@@ -40,6 +40,8 @@ end
 # Add your after (RE)load hooks here
 #
 Padrino.after_load do
+  load("#{PADRINO_ROOT}/config/initializers/rabl_init.rb")
+
   $settings = Adaptor.load
 end
 
