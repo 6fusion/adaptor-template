@@ -5,7 +5,7 @@ require File.expand_path(File.dirname(__FILE__) + "/../config/boot")
 # Takes either an app class or a block argument.
   include Mocha::API
 # app { Padrino.application }
-# app { Adaptor.tap { |app| } }
+# app { AdaptorTemplate.tap { |app| } }
 
 class Riot::Situation
   include Mocha::API
@@ -14,7 +14,7 @@ class Riot::Situation
   # You can handle all padrino applications using instead:
   #   Padrino.application
   # Or just the Application itself like:
-  #   Adaptor.tap { |app|  }
+  #   AdaptorTemplate.tap { |app|  }
 
   def app
     @app || Padrino.application

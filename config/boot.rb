@@ -40,7 +40,7 @@ end
 # Add your after (RE)load hooks here
 #
 Padrino.after_load do
-  $settings = Fusion::Adaptor.load
+  $settings = Adaptor.load
 end
 
 Padrino.load!

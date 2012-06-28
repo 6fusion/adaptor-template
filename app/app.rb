@@ -1,4 +1,4 @@
-class Adaptor < Padrino::Application
+class AdaptorTemplate < Padrino::Application
   register Padrino::Rendering
   register Padrino::Mailer
   register Padrino::Helpers
@@ -83,16 +83,11 @@ class Adaptor < Padrino::Application
 
   ##
   # Root Routes
-  post "/" do
-    before = $settings.host
-
-    adaptor = Fusion::Adaptor.new(params)
-    adaptor.save
-
-    after = $settings.host
-
-    before + ":" + after
+  get "/" do
   end
-
-
+  
+  post "/" do
+    adaptor = Adaptor.new(params)
+    adaptor.save
+  end
 end
