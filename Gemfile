@@ -15,7 +15,7 @@ gem 'activemodel', :require => "active_model"
 
 # Test requirements
 gem 'mocha', :group => "test"
-gem 'riot', :group => "test"
+gem 'rspec', :group => "test"
 gem 'rack-test', :require => "rack/test", :group => "test"
 
 # Padrino Stable Gem
