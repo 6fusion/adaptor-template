@@ -32,11 +32,11 @@ class Adaptor < Padrino::Application
   # set :default_builder, "foo"   # Set a custom form builder (default 'StandardFormBuilder')
   # set :locale_path, "bar"       # Set path for I18n translations (default your_app/locales)
   # disable :sessions             # Disabled sessions by default (enable if needed)
-  # disable :flash                # Disables sinatra-flash (enabled by default if Sinatra::Flash is defined)
+  disable :flash                # Disables sinatra-flash (enabled by default if Sinatra::Flash is defined)
   # layout  :my_layout            # Layout can be in views/layouts/foo.ext or views/foo.ext (default :application)
   #
   configure :development do
-    disable :show_exceptions, :dump_errors, :raise_errors
+    disable :show_exceptions, :raise_errors
   end
 
   ##
@@ -83,11 +83,15 @@ class Adaptor < Padrino::Application
 
   ##
   # Root Routes
-  get "/" do
-    #adaptor = Adaptory.new({ host: 'localhost', username: 'username', password: 'password' })
-    #adaptor.save
+  post "/" do
+    before = $settings.host
 
-    "Success"
+    adaptor = Fusion::Adaptor.new(params)
+    adaptor.save
+
+    after = $settings.host
+
+    before + ":" + after
   end
 
 

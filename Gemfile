@@ -6,10 +6,10 @@ gem 'thin' # or mongrel
 
            # Project requirements
 gem 'rake'
-gem 'sinatra-flash', :require => 'sinatra/flash'
 
 # Component requirements
 gem 'rabl'
+gem 'yajl-ruby', :require => "yajl"
 gem 'haml'
 gem 'activemodel', :require => "active_model"
 
