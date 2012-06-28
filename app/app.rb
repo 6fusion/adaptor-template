@@ -80,14 +80,4 @@ class AdaptorTemplate < Padrino::Application
   error 501 do
     render('errors/501')
   end
-
-  ##
-  # Root Routes
-  get "/" do
-  end
-  
-  post "/" do
-    adaptor = Adaptor.new(params)
-    adaptor.save
-  end
 end

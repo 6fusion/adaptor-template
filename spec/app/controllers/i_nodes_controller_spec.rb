@@ -1,11 +1,10 @@
 require 'spec_helper'
 
-describe "CapabilitiesController" do
+describe "INodesController" do
   before do
-    json = { :format => 'json' }
-    get "/capabilities.json", json
+    get "/"
   end
-  
+
   it "returns hello world" do
     last_response.body.should == "Hello World"
   end

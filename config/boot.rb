@@ -10,8 +10,9 @@ Bundler.require(:default, PADRINO_ENV)
 ##
 # ## Enable devel logging
 #
-# Padrino::Logger::Config[:development][:log_level]  = :devel
 # Padrino::Logger::Config[:development][:log_static] = true
+# Padrino::Logger::Config[:test][:log_level]  = :info
+# Padrino::Logger::Config[:test][:stream]  = :to_file
 #
 # ## Configure your I18n
 #
@@ -34,6 +35,7 @@ Bundler.require(:default, PADRINO_ENV)
 # Add your before (RE)load hooks here
 #
 Padrino.before_load do
+  # Padrino.set_load_paths("#{PADRINO_ROOT}/config/initializers/")
 end
 
 ##
@@ -41,8 +43,6 @@ end
 #
 Padrino.after_load do
   load("#{PADRINO_ROOT}/config/initializers/rabl_init.rb")
-
-  $settings = Adaptor.load
 end
 
 Padrino.load!

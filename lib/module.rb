@@ -1,5 +1,5 @@
+# Don't modify this file
 module Implementor
-  # Don't modify this file
 end
 
 class Module

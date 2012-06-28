@@ -10,7 +10,7 @@ module Implementor::Machine
     #   none
     # outputs:
     #   Array of Machine Models
-    def all()
+    def all(i_node)
       logger.info('Machine.all')
       machines = Array.new
 
@@ -39,7 +39,7 @@ module Implementor::Machine
     #   uuid - This is the unique identifier for the machine
     # outputs:
     #   Machine Model
-    def find_by_uuid(uuid)
+    def find_by_uuid(i_node, uuid)
       logger.info('Machine.find_by_uuid')
       Machine.new(
         uuid:             uuid,
@@ -60,7 +60,7 @@ module Implementor::Machine
   #   _until - The end DateTime for the range of readings requested
   # outputs:
   #   Array of Readings Models
-  def readings(_since = Time.now.utc.beginning_of_month, _until = Time.now.utc)
+  def readings(i_node, _since = Time.now.utc.beginning_of_month, _until = Time.now.utc)
     logger.info('machine.readings')
     readings = Array.new
 
@@ -90,7 +90,7 @@ module Implementor::Machine
   #   none
   # outputs:
   #   none
-  def power_on()
+  def power_on(i_node)
     logger.info("machine.power_on")
     raise Exceptions::NotImplemented
   end
@@ -101,7 +101,7 @@ module Implementor::Machine
   #   none
   # outputs:
   #   none
-  def power_off()
+  def power_off(i_node)
     logger.info("machine.power_off")
     raise Exceptions::NotImplemented
   end
@@ -112,7 +112,7 @@ module Implementor::Machine
   #   none
   # outputs:
   #   none
-  def restart()
+  def restart(i_node)
     logger.info("machine.restart")
     raise Exceptions::NotImplemented
   end
@@ -123,7 +123,7 @@ module Implementor::Machine
   #   none
   # outputs:
   #   none
-  def shutdown()
+  def shutdown(i_node)
     logger.info("machine.shutdown")
     raise Exceptions::NotImplemented
   end
@@ -134,17 +134,17 @@ module Implementor::Machine
   #   none
   # outputs:
   #   none
-  def unplug()
+  def unplug(i_node)
     logger.info("machine.unplug")
     raise Exceptions::NotImplemented
   end
 
-  def save()
+  def save(i_node)
     logger.info("machine.save")
     raise Exceptions::NotImplemented
   end
 
-  def delete()
+  def delete(i_node)
     logger.info("machine.delete")
     raise Exceptions::NotImplemented
   end

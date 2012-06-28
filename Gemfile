@@ -7,12 +7,6 @@ gem 'thin' # or mongrel
            # Project requirements
 gem 'rake'
 
-# Component requirements
-gem 'rabl'
-gem 'yajl-ruby', :require => "yajl"
-gem 'haml'
-gem 'activemodel', :require => "active_model"
-
 # Test requirements
 gem 'mocha', :group => "test"
 gem 'rspec', :group => "test"
@@ -20,6 +14,12 @@ gem 'rack-test', :require => "rack/test", :group => "test"
 
 # Padrino Stable Gem
 gem 'padrino', '0.10.7'
+
+# Component requirements
+gem 'rabl'
+gem 'yajl-ruby', :require => "yajl"
+gem 'haml'
+gem 'activemodel', :require => "active_model"
 
 # Or Padrino Edge
 # gem 'padrino', :git => 'git://github.com/padrino/padrino-framework.git'
