@@ -1,9 +1,10 @@
 class Host < Base
   attr_accessor :uuid,
                 :name,
-                :host_name,
-                :available_memory,
-                :operating_system,
+                :ip_address,
+                :cpu_count,
+                :cpu_speed,
+                :total_memory,
                 :status
 
   include Implementor::Host

@@ -4,7 +4,7 @@ module Implementor::Machine
   module ClassMethods
     # Reads
     # This is where you would call your cloud service and get a list of machines
-    # Implement a method that returns an array of all machines from 
+    # Implement a method that returns an array of all machines from
     # your platform hydrating the Machine model.
     # inputs:
     #   none
@@ -19,10 +19,14 @@ module Implementor::Machine
         machine = Machine.new(
           uuid:             'aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaa' + i.to_s,
           name:             i.to_s + ':My Fake Machine',
-          host_name:        i.to_s + ':MY_FAKE_MAC',
-          available_memory: 32*1024*1024,
-          operating_system: 'Linux',
-          status:           'poweredOn'
+          cpu_count:        rand(4),
+          cpu_speed:        rand(2000),
+          maximum_memory:   32*1024*1024,
+          system:           build_system(),
+          disks:            build_disks(),
+          nics:             build_nics(),
+          guest_agent:      true,
+          power_state:      'poweredOn'
         )
 
         # Add the Machine object to the @machines array
@@ -32,7 +36,7 @@ module Implementor::Machine
       machines
     end
 
-    # This is where you would call your cloud service and 
+    # This is where you would call your cloud service and
     # find the machine matching the uuid passed.
     # Then you would hydrate and return a Machine model.
     # inputs:
@@ -41,14 +45,68 @@ module Implementor::Machine
     #   Machine Model
     def find_by_uuid(i_node, uuid)
       logger.info('Machine.find_by_uuid')
-      Machine.new(
+      machine = Machine.new(
         uuid:             uuid,
         name:             'My Fake Machine',
-        host_name:        'MY_FAKE_MAC',
-        available_memory: 32*1024*1024,
-        operating_system: 'Linux',
-        status:           'poweredOn'
+        cpu_count:        rand(4),
+        cpu_speed:        rand(2000),
+        maximum_memory:   32*1024*1024,
+        system:           build_system(),
+        disks:            build_disks(),
+        nics:             build_nics(),
+        guest_agent:      true,
+        power_state:      'poweredOn'
       )
+
+      machine
+    end
+
+    # Template Helper Method. Can be deleted
+    def build_system()
+      logger.info('Machine.build_system')
+      
+      System.new(
+        architecture:     "x64",
+        operating_system: "Linux"
+      )
+    end
+
+    # Template Helper Method. Can be deleted
+    def build_disks()
+      logger.info('Machine.build_disks')
+      
+      machine_disks = Array.new
+      1.upto(2) do |i|
+        machine_disk = MachineDisk.new(
+          uuid:         "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaa#{i}",
+          name:         "#{i}:My Fake Disk",
+          maximum_size: 32*1024*1024,
+          type:         'Disk'
+        )
+
+        machine_disks << machine_disk
+      end
+
+      machine_disks
+    end
+
+    # Template Helper Method. Can be deleted
+    def build_nics()
+      logger.info('Machine.build_nics')
+      
+      machine_nics = Array.new
+      1.upto(2) do |i|
+        machine_nic = MachineNic.new(
+          uuid:        "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaa#{i}",
+          name:        "#{i}:My Fake Nic",
+          mac_address: "A0:B0:C0:D0:E0:F0:G0:H#{i}",
+          ip_address:  "192.168.1.#{i}"
+        )
+
+        machine_nics << machine_nic
+      end
+
+      machine_nics
     end
   end
 
@@ -62,19 +120,14 @@ module Implementor::Machine
   #   Array of Readings Models
   def readings(i_node, _since = Time.now.utc.beginning_of_month, _until = Time.now.utc)
     logger.info('machine.readings')
-    readings = Array.new
 
+    readings = Array.new
     1.upto(5) do |i|
-      reading = Reading.new(
-        machine_uuid: self.uuid,
+      reading = MachineReading.new(
         interval:     3600,
         date_time:    Time.at((_until.to_f - _since.to_f) * rand + _since.to_f),
-        cpu:          1400,
-        memory:       rand(32) * 1024 * 1024,
-        disk_io:      rand(10000),
-        lan_io:       32 * rand(10000),
-        wan_io:       32 * rand(10000),
-        storage:      32 * rand(100000)
+        cpu_usage:    1400,
+        memory_bytes: rand(32) * 1024 * 1024
       )
 
       readings << reading

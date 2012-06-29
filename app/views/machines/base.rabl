@@ -1,7 +1,8 @@
-attributes :id,
-           :uuid,
+attributes :uuid,
            :name,
-           :host_name,
-           :available_memory,
-           :operating_system,
-           :status
+           :cpu_count,
+           :cpu_speed,
+           :maximum_memory,
+           :system,
+           :guest_agent,
+           :power_state

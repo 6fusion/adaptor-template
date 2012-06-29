@@ -1,0 +1,2 @@
+class HostReading < Base
+end
