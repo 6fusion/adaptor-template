@@ -1,5 +1,2 @@
-class MachineDiskReading < Base
-  attr_accessor :usage,
-                :read,
-                :write
+class MachineDiskReading < Base::MachineDiskReading
 end

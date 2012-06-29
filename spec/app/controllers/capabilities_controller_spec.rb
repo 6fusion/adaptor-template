@@ -2,8 +2,7 @@ require 'spec_helper'
 
 describe "CapabilitiesController" do
   before do
-    json = { :format => 'json' }
-    get "/capabilities.json", json
+    get "/inodes/aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaa1/capabilities"
   end
   
   it "returns hello world" do

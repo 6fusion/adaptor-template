@@ -1,28 +1,13 @@
-class INode < Base
-  attr_accessor :uuid,
-                :connection,
-                :credentials
-
+class INode < Base::INode
   def self.find_by_uuid(uuid)
     logger.info('INode.find_by_uuid')
 
-    i_node_file_path = "#{PADRINO_ROOT}/data/#{uuid}.json"
-    logger.info i_node_file_path
-    if !File.exists?(i_node_file_path) || File.zero?(i_node_file_path)
-      raise Exceptions::NotFound
-    else
-      File.open(i_node_file_path, "r") do |file_handle|
-        self.new(ActiveSupport::JSON.decode(file_handle))
-      end
-    end
+    super
   end
 
   def save()
-    logger.info('i_node.save')
+    logger.info('INode.save')
 
-    i_node_file_path = "#{PADRINO_ROOT}/data/#{self.uuid}.json"
-    File.open(i_node_file_path, "w") do |file_handle|
-      file_handle.write(self.to_json)
-    end
+    super
   end
 end

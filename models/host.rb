@@ -1,11 +1,16 @@
-class Host < Base
-  attr_accessor :uuid,
-                :name,
-                :ip_address,
-                :cpu_count,
-                :cpu_speed,
-                :total_memory,
-                :status
+class Host < Base::Host
+  def self.all(i_node)
+    logger.info('Host.all')
+    raise Exceptions::NotImplemented
+  end
 
-  include Implementor::Host
+  def self.find_by_uuid(i_node, uuid)
+    logger.info('Host.find_by_uuid')
+    raise Exceptions::NotImplemented
+  end
+
+  def readings(i_node, uuid)
+    logger.info('Host.readings')
+    raise Exceptions::NotImplemented
+  end
 end

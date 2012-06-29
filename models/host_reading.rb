@@ -1,2 +1,2 @@
-class HostReading < Base
+class HostReading < Base::HostReading
 end

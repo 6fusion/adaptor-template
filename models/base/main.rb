@@ -1,4 +1,7 @@
 class Base
+end
+
+class Main
   include ActiveModel::Validations
   include ActiveSupport::JSON
 

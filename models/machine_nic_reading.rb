@@ -1,4 +1,2 @@
-class MachineNicReading < Base
-  attr_accessor :receive,
-                :transmit
+class MachineNicReading < Base::MachineNicReading
 end

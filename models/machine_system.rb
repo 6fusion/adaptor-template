@@ -1,4 +1,2 @@
-class MachineSystem < Base
-  attr_accessor :architecture,
-                :operating_system 
+class MachineSystem < Base::MachineSystem
 end
