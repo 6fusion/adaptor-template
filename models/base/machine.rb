@@ -1,14 +1,14 @@
 class Base::Machine < Main
   attr_accessor :uuid,
-                :name,
-                :cpu_count,
-                :cpu_speed,
-                :maximum_memory,
-                :system,
-                :disks,
-                :nics,
-                :guest_agent,
-                :power_state
+    :name,
+    :cpu_count,
+    :cpu_speed,
+    :maximum_memory,
+    :system,
+    :disks,
+    :nics,
+    :guest_agent,
+    :power_state
 
   # This is where you would call your cloud service and get a list of machines
   # Implement a method that returns an array of all machines from
