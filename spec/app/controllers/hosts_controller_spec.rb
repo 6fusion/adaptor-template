@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe "CapabilitiesController" do
+describe "HostsController" do
   before do
-    get 'i_nodes/aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaa1/capabilities'
+    get 'i_nodes/aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaa1/hosts'
   end
 
   it "returns with success" do

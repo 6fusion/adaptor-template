@@ -11,8 +11,8 @@ Bundler.require(:default, PADRINO_ENV)
 # ## Enable devel logging
 #
 # Padrino::Logger::Config[:development][:log_static] = true
-# Padrino::Logger::Config[:test][:log_level]  = :info
-# Padrino::Logger::Config[:test][:stream]  = :to_file
+Padrino::Logger::Config[:test][:log_level]  = :info
+Padrino::Logger::Config[:test][:stream]  = :to_file
 #
 # ## Configure your I18n
 #
