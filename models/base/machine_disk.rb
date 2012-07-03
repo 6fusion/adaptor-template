@@ -1,4 +1,5 @@
 class Base::MachineDisk < Main
+  # @api public
   attr_accessor :uuid,
                 :name,
                 :maximum_size,

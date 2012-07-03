@@ -1,4 +1,5 @@
 class Base::MachineNic < Main
+  # @api public
   attr_accessor :uuid,
                 :name,
                 :mac_address,

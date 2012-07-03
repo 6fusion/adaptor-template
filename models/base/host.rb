@@ -1,4 +1,5 @@
 class Base::Host < Main
+  # @api public
   attr_accessor :uuid,
                 :name,
                 :ip_address,

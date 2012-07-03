@@ -1,4 +1,5 @@
 class Base::MachineSystem < Main
+  # @api public
   attr_accessor :architecture,
-                :operating_system 
+                :operating_system
 end

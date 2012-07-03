@@ -1,4 +1,5 @@
 class Base::INode < Main
+  # @api public
   attr_accessor :uuid,
                 :connection,
                 :credentials

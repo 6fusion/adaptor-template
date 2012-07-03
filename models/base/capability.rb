@@ -1,4 +1,5 @@
 class Base::Capability < Main
+  # @api public
   attr_accessor :name
 
   def self.all(i_node)

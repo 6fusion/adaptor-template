@@ -1,4 +1,5 @@
 class Base::Machine < Main
+  # @api public
   attr_accessor :uuid,
     :name,
     :cpu_count,
