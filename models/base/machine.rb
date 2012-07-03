@@ -23,9 +23,9 @@ class Base::Machine < Main
   validates :maximum_memory,
     :numericality => { :only_integer => true, :greater_than => 0 }
   validates :guest_agent,
-    :allow_nil => false
+    :presence => true
   validates :power_state,
-    :allow_nil => false
+    :presence => true
 
   # This is where you would call your cloud service and get a list of machines
   # Implement a method that returns an array of all machines from
