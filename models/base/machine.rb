@@ -11,6 +11,22 @@ class Base::Machine < Main
     :guest_agent,
     :power_state
 
+  validates :uuid,
+    :presence => true,
+    :length => { :maximum => 40 }
+  validates :name,
+    :presence => true
+  validates :cpu_count,
+    :numericality => { :only_integer => true, :greater_than => 0 }
+  validates :cpu_speed,
+    :numericality => { :greater_than => 0 }
+  validates :maximum_memory,
+    :numericality => { :only_integer => true, :greater_than => 0 }
+  validates :guest_agent,
+    :allow_nil => false
+  validates :power_state,
+    :allow_nil => false
+
   # This is where you would call your cloud service and get a list of machines
   # Implement a method that returns an array of all machines from
   # your platform hydrating the Machine model.

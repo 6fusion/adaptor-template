@@ -3,4 +3,11 @@ class Base::MachineDiskReading < Main
   attr_accessor :usage,
                 :read,
                 :write
+
+  validates :usage,
+    :numericality => { :only_integer => true, :greater_than_or_equal_to => 0 }
+  validates :read,
+    :numericality => { :only_integer => true, :greater_than_or_equal_to => 0 }
+  validates :write,
+    :numericality => { :only_integer => true, :greater_than_or_equal_to => 0 }
 end

@@ -1,8 +1,8 @@
 class Base::INode < Main
   # @api public
   attr_accessor :uuid,
-                :connection,
-                :credentials
+    :connection,
+    :credentials
 
   def self.find_by_uuid(uuid)
     logger.info('Base::INode.find_by_uuid')
