@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe "MachinesController" do
   before do
-    get 'i_nodes/aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaa1/hosts'
+    get 'i_nodes/aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaa1/machines'
   end
 
   it "returns with success" do
