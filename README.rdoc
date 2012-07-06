@@ -29,7 +29,7 @@ MachineNicReading:: 123
 To use the 6fusion Adaptor Template, simply...
 
 * Fork the latest version from github
-* $ git checkout \{fork\}
+* $ git checkout \forked_repository\
 * Modify to suit
 
 == Getting Started
