@@ -15,14 +15,14 @@ Here is a brief overview of models requested by the 6fusion Engine Room:
 
 INode:: This is where the iNode information that facilitates communication with the iNode is stored
 Capability:: This is simply a model for building a capabilities array of actions/tasks that can be performed on the iNode
-Host:: 123
-HostReading:: 123
-Machine:: 123
-MachineReading:: 123
-MachineDisk:: 123
-MachineDiskReading:: 123
-MachineNic:: 123
-MachineNicReading:: 123
+Host:: Represents a physical device in the cloud infrastrucutre that hosts virtual machines or software.
+HostReading:: Represents the activity of a specific Host.
+Machine:: Represents a virtual slice of the cloud infrastructure.
+MachineReading:: Readings or Metrics that are gathered from the cloud infrastructure on a machine basis.  (This is what is used to calculate the WAC.)
+MachineDisk:: Represents a disk on the Machine that is used for storage or a mounted image for loading additional software.
+MachineDiskReading:: Represents the activity of the specific disk/mounted image or MachineDisk.
+MachineNic:: Represents a network interface on the machine.
+MachineNicReading:: Represents the activity of the specific network interface or MachineNic.
 
 == Usage
 
