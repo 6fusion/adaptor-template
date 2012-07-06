@@ -1,4 +1,4 @@
-AdaptorTemplate.controllers :i_nodes, :priority => :low do
+AdaptorTemplate.controllers :inodes, :priority => :low do
   # Creates
   post :index do
     logger.info('i_nodes#index')
@@ -6,7 +6,7 @@ AdaptorTemplate.controllers :i_nodes, :priority => :low do
     i_node.save
   end
 
-  get :show, :map => "i_nodes/:uuid" do
+  get :show do
     logger.info('i_nodes#show')
     @i_node = INode.find_by_uuid(params[:uuid])
 

@@ -1,7 +1,7 @@
-AdaptorTemplate.controllers :hosts, :parent => :i_nodes do
+AdaptorTemplate.controllers :hosts, :map => "/inodes/:inode_uuid" do
   before do
     logger.info('hosts#before')
-    @i_node = INode.find_by_uuid(params[:i_node_id])
+    @i_node = INode.find_by_uuid(params[:inode_uuid])
   end
 
   get :index do

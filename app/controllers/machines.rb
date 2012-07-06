@@ -1,6 +1,6 @@
-AdaptorTemplate.controllers :machines, :parent => :i_nodes do
+AdaptorTemplate.controllers :machines, :map => "/inodes/:inode_uuid" do
   before do
-    @i_node = INode.find_by_uuid(params[:i_node_id])
+    @i_node = INode.find_by_uuid(params[:inode_uuid])
   end
 
   # Creates
@@ -71,7 +71,7 @@ AdaptorTemplate.controllers :machines, :parent => :i_nodes do
 
     render 'machines/show'
   end
-  
+
   # Deletes
   delete :delete, :map => "machines/:uuid" do
     @machine = Machine.find_by_uuid(@i_node, params[:uuid])

@@ -1,7 +1,7 @@
-AdaptorTemplate.controllers :capabilities, :parent => :i_nodes do
+AdaptorTemplate.controllers :capabilities, :map => "/inodes/:inode_uuid" do
   before do
     logger.info('capabilities#before')
-    @i_node = INode.find_by_uuid(params[:i_node_id])
+    @i_node = INode.find_by_uuid(params[:inode_uuid])
   end
 
   get :index do
