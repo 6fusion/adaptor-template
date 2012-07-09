@@ -48,7 +48,7 @@ If you are looking to use a Java library for interaction with your cloud service
 
 In order to use the template it is really simple.  All you need to do is navigate to the models folder of your checkout and modify the class methods on the models to implement the requested information.  You can use the yard documentation to get an idea of what to implement or read the comments above each of the methods.
 
-You can access the yard documentation either through the yard gem or using the 6fusion hosted documentation at {devdocs.6fusion.com}[http://devdocs.6fusion.com]
+You can access the yard documentation either through building it with the yard gem or using the hosted {yard documentation}[http://rubydoc.info/github/6fusion/adaptor-template/master/frames]
 
 ** Do NOT modify the INode model unless you have a specific storage strategy.  This is the only model where a basic implementation has already been done for you.
 
