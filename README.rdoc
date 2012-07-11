@@ -54,4 +54,4 @@ You can access the yard documentation either through building it with the yard g
 
 == Copyright
 
-Copyright (c) 2012 6fusion. See {LICENSE}[https://github.com/6fusion/adaptor-template/blob/master/LICENSE.rdoc] for details.
+Copyright 2012 6fusion, Inc.  See {LICENSE}[https://github.com/6fusion/adaptor-template/blob/master/LICENSE.rdoc] for details.
