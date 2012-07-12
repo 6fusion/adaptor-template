@@ -6,28 +6,28 @@ AdaptorTemplate.controllers :hosts, :map => "/inodes/:inode_uuid" do
 
   get :index do
     logger.info('hosts#index')
-    @hosts = i_node.hosts.all(@i_node)
+    @hosts = Host.all(@i_node)
 
     render 'hosts/index'
   end
 
   get :index, :map => 'hosts/readings' do
     logger.info('hosts#readings')
-    @hosts = i_node.hosts.all(@i_node)
+    @hosts = Host.all(@i_node)
 
     render 'hosts/readings'
   end
 
   get :index, :map => 'hosts/:uuid/readings' do
     logger.info('hosts.uuid#readings')
-    @host = i_node.hosts.find_by_uuid(@i_node, params[:uuid])
+    @host = Host.find_by_uuid(@i_node, params[:uuid])
 
     render 'hosts/readings'
   end
 
   get :show, :map => "hosts/:uuid" do
     logger.info('hosts#show')
-    @host = i_node.hosts.find_by_uuid(@i_node, params[:uuid])
+    @host = Host.find_by_uuid(@i_node, params[:uuid])
 
     render 'hosts/show'
   end
