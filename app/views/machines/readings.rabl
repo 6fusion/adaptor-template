@@ -9,28 +9,30 @@ _until = params[:until].blank? ? Time.now.utc : params[:until]
 child :disks => :disks do
   extends 'machines/disks'
 
- node :readings do |r|
-   r.readings(@i_node, _since, _until).map do |r|
-     {
-       :usage => r.usage,
-       :read => r.read,
-       :write => r.write
-     }
-   end
- end
+  node :readings do |r|
+    r.readings(@i_node, _since, _until).map do |r|
+      {
+        :usage => r.usage,
+        :read => r.read,
+        :write => r.write,
+        :date_time => r.date_time
+      }
+    end
+  end
 end
 
 child :nics => :nics do
   extends 'machines/nics'
 
- node :readings do |r|
-   r.readings(@i_node, _since, _until).map do |r|
-     {
-       :receive => r.receive,
-       :transmit => r.transmit
-     }
-   end
- end
+  node :readings do |r|
+    r.readings(@i_node, _since, _until).map do |r|
+      {
+        :receive => r.receive,
+        :transmit => r.transmit,
+        :date_time => r.date_time
+      }
+    end
+  end
 end
 
 node :readings do |o|
