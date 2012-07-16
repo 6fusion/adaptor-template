@@ -5,8 +5,8 @@ AdaptorTemplate.controllers :machines, :map => "/inodes/:inode_uuid" do
 
   # Creates
   post :create do
-    @machine = Machine.new(@i_node, params)
-    @machine.save
+    @machine = Machine.new(params)
+    @machine.save(@i_node)
 
     render 'machines/show'
   end
@@ -39,35 +39,35 @@ AdaptorTemplate.controllers :machines, :map => "/inodes/:inode_uuid" do
   # Updates
   put :show, :map => 'machines/:uuid/power_on' do
     @machine = Machine.find_by_uuid(@i_node, params[:uuid])
-    @machine.power_on if @machine.present?
+    @machine.power_on(@i_node) if @machine.present?
 
     render 'machines/show'
   end
 
   put :show, :map => 'machines/:uuid/power_off' do
     @machine = Machine.find_by_uuid(@i_node, params[:uuid])
-    @machine.power_off if @machine.present?
+    @machine.power_off(@i_node) if @machine.present?
 
     render 'machines/show'
   end
 
   put :show, :map => 'machines/:uuid/restart' do
     @machine = Machine.find_by_uuid(@i_node, params[:uuid])
-    @machine.restart if @machine.present?
+    @machine.restart(@i_node) if @machine.present?
 
     render 'machines/show'
   end
 
   put :show, :map => 'machines/:uuid/shutdown' do
     @machine = Machine.find_by_uuid(@i_node, params[:uuid])
-    @machine.shutdown if @machine.present?
+    @machine.shutdown(@i_node) if @machine.present?
 
     render 'machines/show'
   end
 
   put :show, :map => 'machines/:uuid/unplug' do
     @machine = Machine.find_by_uuid(@i_node, params[:uuid])
-    @machine.unplug if @machine.present?
+    @machine.unplug(@i_node) if @machine.present?
 
     render 'machines/show'
   end
@@ -75,7 +75,7 @@ AdaptorTemplate.controllers :machines, :map => "/inodes/:inode_uuid" do
   # Deletes
   delete :delete, :map => "machines/:uuid" do
     @machine = Machine.find_by_uuid(@i_node, params[:uuid])
-    @machine.delete
+    @machine.delete(@i_node)
 
     render 'machines/show'
   end
