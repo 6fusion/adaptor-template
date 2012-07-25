@@ -50,6 +50,8 @@ In order to use the template it is really simple.  All you need to do is navigat
 
 You can access the yard documentation either through building it with the yard gem or using the hosted {yard documentation}[http://rubydoc.info/github/6fusion/adaptor-template/master/frames]
 
+For additonal information that may be helpful developing your adaptor look here: {Adaptor Template - Wiki}[https://github.com/6fusion/adaptor-template/wiki]
+
 ** Do NOT modify the INode model unless you have a specific storage strategy.  This is the only model where a basic implementation has already been done for you.
 
 == Copyright
