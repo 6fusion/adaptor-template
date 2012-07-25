@@ -5,6 +5,14 @@ class AdaptorTemplate < Padrino::Application
 
   enable :sessions
 
+  class ErrorDescription
+    attr_accessor :code, :description
+
+    def initialize(code, description)
+      self.code, self.description = code, description
+    end
+  end
+
   ##
   # Caching support
   #
@@ -39,6 +47,12 @@ class AdaptorTemplate < Padrino::Application
     disable :show_exceptions, :raise_errors
   end
 
+  def render_json_error(code)
+    @error = ErrorDescription.new(code,env['sinatra.error'].to_s)
+    logger.info "code = #{@error.code}, description=#{@error.description}"
+    render('errors/error')
+  end
+
   ##
   # You can manage errors like:
   error Exceptions::Forbidden do
@@ -61,23 +75,31 @@ class AdaptorTemplate < Padrino::Application
     halt 501
   end
 
+  error Exceptions::UnprocessableEntity do
+    halt 422
+  end
+
   error 403 do
-    render('errors/403')
+    render_json_error(403)
   end
 
   error 404 do
-    render('errors/404')
+    render_json_error(404)
   end
 
   error 405 do
-    render('errors/405')
+    render_json_error(405)
+  end
+
+  error 422 do
+    render_json_error(422)
   end
 
   error 500 do
-    render('errors/500')
+    render_json_error(500)
   end
 
   error 501 do
-    render('errors/501')
+    render_json_error(501)
   end
 end
