@@ -1,38 +1,26 @@
 # @api public
-#  Possible capabilities include:
+# @example Possible capabilities include:
+#  Each of these capabilities are to be implemented individually
 #
 #  |--------------------+----------------------------------|
-#  | capability         | requires                         |
+#  | capability         | currently supported              |
 #  |:-------------------|:---------------------------------|
-#  | power_on           | guest_inventory                  |
-#  | power_off          | guest_inventory                  |
-#  | unplug             | guest_inventory                  |
-#  | restart            | guest_inventory                  |
-#  | suspend            | guest_inventory                  |
-#  | resume             | guest_inventory                  |
-#  | guest_state        | none                             |
-#  | guest_inventory    | guest_state                      |
-#  | host_state         | none                             |
-#  | host_inventory     | host_state                       |
-#  | guest_reading      | none                             |
-#  | guest_metering     | guest_inventory, guest_reading   |
-#  | host_reading       | none                             |
-#  | host_metering      | host_inventory, host_reading     |
-#  | create             | guest_inventory                  |
-#  | delete             | guest_inventory                  |
-#  | clone              | guest_inventory                  |
-#  | edit               | guest_inventory                  |
-#  | move               | guest_inventory & host_inventory |
-#  | take_snapshot      | guest_inventory                  |
-#  | revert_to_snapshot | guest_inventory                  |
-#  | assign_ip          | guest_inventory                  |
-#  | unassign_ip        | guest_inventory                  |
-#  | import             | create                           |
-#  | export             | guest_inventory                  |
+#  | add                | yes                              |
+#  | start              | yes                              |
+#  | stop               | yes                              |
+#  | restart            | yes                              |
+#  | force_stop         | yes                              |
+#  | forst_restart      | yes                              |
+#  | delete             | yes                              |
+#  | edit               | no                               |
+#  | suspend            | no                               |
+#  | resume             | no                               |
+#  | unplug             | no                               |
+#  | clone              | no                               |
+#  | take_snapshot      | no                               |
+#  | revert_to_snapshot | no                               |
 #  |--------------------+----------------------------------|
 #
-#  Each of these capabilities may be implemented individually so long as the required
-#  capabilities have also been implemented.
 class Capability < Base::Capability
 
   SUPPORTED_CAPABILITIES = ['guest_inventory',

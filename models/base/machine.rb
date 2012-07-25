@@ -8,8 +8,24 @@ class Base::Machine < Main
     :system,
     :disks,
     :nics,
-    :guest_agent,
-    :power_state
+    :guest_agent
+
+  # @api public
+  # @example Possible machine power states include:
+  #
+  #  |--------------------|
+  #  | power_state        |
+  #  |:-------------------|
+  #  | adding             |
+  #  | restarting         |
+  #  | starting           |
+  #  | stopping           |
+  #  | deleting           |
+  #  | stopped            |
+  #  | started            |
+  #  | deleted            |
+  #  |--------------------|
+  attr_accessor :power_state
 
   validates :uuid,
     :presence => true,
