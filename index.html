@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <title>Adaptor Template by 6fusion</title>
+  </head>
+
+  <body>
+    <div id="container">
+      <div class="inner">
+
+        <header>
+          <h1>Adaptor Template</h1>
+          <h2>6fusion Template for creating hypervisor/cloud/etc adaptors.</h2>
+        </header>
+
+        <section id="downloads" class="clearfix">
+          <a href="https://github.com/6fusion/adaptor-template/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
+          <a href="https://github.com/6fusion/adaptor-template/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
+          <a href="https://github.com/6fusion/adaptor-template" id="view-on-github" class="button"><span>View on GitHub</span></a>
+        </section>
+
+        <hr>
+
+        <section id="main_content">
+          <h1>6fusion Adaptor Template</h1>
+
+<p>Follow us at <a href="http://www.6fusion.com">6fusion</a> and on twitter <a href="http://twitter.com/6fusionCore">@6fusionCore</a></p>
+
+<h2>Introduction</h2>
+
+<p>6fusion Adaptor Template is a REST service template, using <a href="http://padrinorb.com">padrinorb</a>, designed in such a way
+that a developer can easily integrate their hypervisor or cloud system with the 6fusion framework.</p>
+
+<p>Our goal with this template is to adhere to the essence of REST and at the same time create a standard template
+that will make creating a 6fusion Adaptor extremely easy.</p>
+
+<p>Here is a brief overview of models requested by the 6fusion Engine Room:</p>
+
+<p>INode:: This is where the iNode information that facilitates communication with the iNode is stored
+Capability:: This is simply a model for building a capabilities array of actions/tasks that can be performed on the iNode
+Host:: Represents a physical device in the cloud infrastrucutre that hosts virtual machines or software.
+HostReading:: Represents the activity of a specific Host.
+Machine:: Represents a virtual slice of the cloud infrastructure.
+MachineReading:: Readings or Metrics that are gathered from the cloud infrastructure on a machine basis.  (This is what is used to calculate the WAC.)
+MachineDisk:: Represents a disk on the Machine that is used for storage or a mounted image for loading additional software.
+MachineDiskReading:: Represents the activity of the specific disk/mounted image or MachineDisk.
+MachineNic:: Represents a network interface on the machine.
+MachineNicReading:: Represents the activity of the specific network interface or MachineNic.</p>
+
+<h2>Usage</h2>
+
+<p>To use the 6fusion Adaptor Template, simply...</p>
+
+<ul>
+<li>Fork the latest version from github</li>
+<li>$ git checkout {forked_repository}</li>
+<li>Modify to suit</li>
+</ul><h2>JRuby Configuration w/ RVM</h2>
+
+<p>If you are looking to use a Java library for interaction with your cloud service, you'll want to run this REST service as a jruby application.  To do so is pretty simple.</p>
+
+<ul>
+<li>In the Gemfile you'll want to switch from the 'thin' gem to the 'trinidad' gem.
+
+<ul>
+<li>Comment Out Line #4 (gem 'thin' # or mongrel)</li>
+<li>Uncomment Line #5 (gem 'trinidad', :platform =&gt; 'jruby')</li>
+</ul>
+</li>
+<li>If you are using rvm you'll want to also uncomment a line in the .rvmrc file in the root of the project.
+
+<ul>
+<li>Line #22 (PROJECT_JRUBY_OPTS=( --1.9 ).</li>
+</ul>
+</li>
+<li>Finally if you haven't done so run this command in your shell client.
+
+<ul>
+<li>chmod +x ${rvm_path}/hooks/after_use_jruby_opts</li>
+</ul>
+</li>
+</ul><h2>Getting Started</h2>
+
+<p>In order to use the template it is really simple.  All you need to do is navigate to the models folder of your checkout and modify the class methods on the models to implement the requested information.  You can use the yard documentation to get an idea of what to implement or read the comments above each of the methods.</p>
+
+<p>You can access the yard documentation either through building it with the yard gem or using the hosted <a href="http://rubydoc.info/github/6fusion/adaptor-template/master/frames">yard documentation</a>.</p>
+
+<p>For additonal information that may be helpful developing your adaptor look here: <a href="https://github.com/6fusion/adaptor-template/wiki">Adaptor Template - Wiki</a></p>
+
+<p>** Do NOT modify the INode model unless you have a specific storage strategy.  This is the only model where a basic implementation has already been done for you.</p>
+
+<h2>Copyright</h2>
+
+<p>Copyright 2012 6fusion, Inc. See <a href="https://github.com/6fusion/adaptor-template/blob/master/LICENSE.rdoc">LICENSE</a> for details.</p>
+        </section>
+
+        <footer>
+          Adaptor Template is maintained by <a href="https://github.com/6fusion">6fusion</a><br>
+          This page was generated by <a href="http://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="http://twitter.com/jasonlong">Jason Long</a>.
+        </footer>
+
+        
+      </div>
+    </div>
+  </body>
+</html>
