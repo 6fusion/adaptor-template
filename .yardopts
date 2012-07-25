@@ -1,1 +1,2 @@
+models
 --query '@api.text == "public"'
