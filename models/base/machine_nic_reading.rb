@@ -1,5 +1,5 @@
+# @api public
 class Base::MachineNicReading < Main
-  # @api public
   attr_accessor :receive,
                 :transmit,
                 :date_time

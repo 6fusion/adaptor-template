@@ -1,5 +1,5 @@
+# @api public
 class Base::MachineNic < Main
-  # @api public
   attr_accessor :uuid,
     :name,
     :mac_address,
@@ -16,6 +16,14 @@ class Base::MachineNic < Main
   validates :ip_address,
     :length => { :maximum => 40 }
 
+  # This is where you would call your cloud service and
+  # find a specific machine's nic's readings.
+  # This request should support since (start_date) and until (end_date)
+  #
+  # @param [INode] i_node iNode instance that defines where the action is to take place
+  # @param [Time] _since The beginning date/time for the requested readings
+  # @param [Time] _until The ending date/time for the requested readings
+  # @return [Machine]
   def readings(i_node, _since = Time.now.utc.beginning_of_month, _until = Time.now.utc)
     logger.info('Base::MachineNic.readings')
     raise Exceptions::NotImplemented

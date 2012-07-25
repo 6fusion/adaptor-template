@@ -1,6 +1,10 @@
+# @api public
+# This class file should not be modified if you don't understand what you're doing.
 class Base::INode < Main
-  # @api public
-
+  # Should return details for a specific iNode
+  #
+  # @param [String] uuid The specific identifier for the iNode
+  # @return [INode]
   def self.find_by_uuid(uuid)
     logger.info('Base::INode.find_by_uuid')
 
@@ -15,6 +19,9 @@ class Base::INode < Main
     end
   end
 
+  # Should save the details of the current iNode
+  #
+  # @return [nil]
   def save()
     logger.info('Base::INode.save')
 
