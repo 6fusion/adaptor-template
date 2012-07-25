@@ -10,7 +10,7 @@
 #  | stop               | yes                              |
 #  | restart            | yes                              |
 #  | force_stop         | yes                              |
-#  | forst_restart      | yes                              |
+#  | forse_restart      | yes                              |
 #  | delete             | yes                              |
 #  | edit               | no                               |
 #  | suspend            | no                               |
