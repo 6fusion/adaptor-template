@@ -5,7 +5,7 @@ AdaptorTemplate.controllers :capabilities, :map => "/inodes/:inode_uuid" do
   end
 	
    get :index do
-    logger.info('capabilities#index')
+    logger.info('GET - capabilities#index')
     @capabilities = Capability.all(@inode)
  
     render 'capabilities/index'

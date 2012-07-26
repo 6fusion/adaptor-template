@@ -30,9 +30,9 @@ class Base::Capability < Main
 
   # Should return a list of capabilities for an iNode
   #
-  # @param [INode] i_node iNode instance that defines where the action is to take place
+  # @param [INode] inode iNode instance that defines where the action is to take place
   # @return [Array<Capability>]
-  def self.all(i_node)
+  def self.all(inode)
     logger.info('Base::Capability.all')
     raise Exceptions::NotImplemented
   end
