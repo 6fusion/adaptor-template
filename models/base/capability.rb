@@ -22,7 +22,6 @@
 #  |--------------------+----------------------------------|
 #
 class Base::Capability < Main
-  # @api public
   attr_accessor :name
 
   validates :name,

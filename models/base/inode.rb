@@ -3,10 +3,10 @@
 class Base::INode < Main
   # Should return details for a specific iNode
   #
-  # @param [String] uuid The specific identifier for the iNode
+  # @param [String] uuid The identifier for the iNode
   # @return [INode]
   def self.find_by_uuid(uuid)
-    logger.info('Base::INode.find_by_uuid')
+    logger.info("Base::INode.find_by_uuid(#{uuid})")
 
     inode_file_path = "#{PADRINO_ROOT}/data/#{uuid}.json"
     if !File.exists?(inode_file_path) || File.zero?(inode_file_path)
@@ -18,8 +18,13 @@ class Base::INode < Main
     end
   end
 
+  # Should update the details of the current iNode
+  #
+  # @param [String] uuid The identifier for the iNode
+  # @param [Hash] params A hash of configuraton parameters for the iNode
+  # @return [nil]
   def update(uuid, params)
-    logger.info('Base::INode.update')
+    logger.info("Base::INode.update(#{uuid})")
 
     params.each do |k, v|
       instance_variable_set("@#{k}", v) unless v.nil?
@@ -30,6 +35,7 @@ class Base::INode < Main
 
   # Should save the details of the current iNode
   #
+  # @param [String] uuid The identifier for the iNode
   # @return [nil]
   def save(uuid)
     logger.info("Base::INode.save(#{uuid})")
@@ -40,6 +46,10 @@ class Base::INode < Main
     end
   end
 
+  # Should delete the current iNode
+  #
+  # @param [String] uuid The identifier for the iNode
+  # @return [nil]
   def delete(uuid)
     logger.info("Base::INode.delete(#{uuid})")
 

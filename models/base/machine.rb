@@ -1,6 +1,5 @@
 # @api public
 class Base::Machine < Main
-  # @api public
   attr_accessor :uuid,
     :name,
     :cpu_count,
@@ -11,7 +10,6 @@ class Base::Machine < Main
     :nics,
     :guest_agent
 
-  # @api public
   # @example Possible machine power states include:
   #
   #  |--------------------|
