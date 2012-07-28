@@ -5,14 +5,18 @@
 #  |--------------------+----------------------------------|
 #  | capability         | currently supported              |
 #  |:-------------------|:---------------------------------|
-#  | add                | yes                              |
+#  | machines           | yes                              |
+#  | machines_readings  | yes                              |
+#  | machine            | yes                              |
+#  | machine_readings   | yes                              |
+#  | create             | yes                              |
 #  | start              | yes                              |
 #  | stop               | yes                              |
 #  | restart            | yes                              |
 #  | force_stop         | yes                              |
 #  | force_restart      | yes                              |
 #  | delete             | yes                              |
-#  | edit               | no                               |
+#  | update             | no                               |
 #  | suspend            | no                               |
 #  | resume             | no                               |
 #  | unplug             | no                               |
