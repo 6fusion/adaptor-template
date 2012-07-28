@@ -2,27 +2,27 @@
 # @example Possible capabilities include:
 #  Each of these capabilities are to be implemented individually
 #
-#  |--------------------+----------------------------------|
-#  | capability         | currently supported              |
-#  |:-------------------|:---------------------------------|
-#  | machines           | yes                              |
-#  | machines_readings  | yes                              |
-#  | machine            | yes                              |
-#  | machine_readings   | yes                              |
-#  | create             | no                               |
-#  | start              | yes                              |
-#  | stop               | yes                              |
-#  | restart            | yes                              |
-#  | force_stop         | yes                              |
-#  | force_restart      | yes                              |
-#  | delete             | yes                              |
-#  | update             | no                               |
-#  | pause              | no                               |
-#  | resume             | no                               |
-#  | clone              | no                               |
-#  | take_snapshot      | no                               |
-#  | revert_to_snapshot | no                               |
-#  |--------------------+----------------------------------|
+#  |--------------------+-------------------------+-----------------------------------------------------------------------------------------|
+#  | capability         | currently supported     | description                                                                             |
+#  |:-------------------|:------------------------|:----------------------------------------------------------------------------------------|
+#  | machines           | yes                     | gets a list of machines on the iNode                                                    |
+#  | machines_readings  | yes                     | gets a list of machines with readings for a given time period                           |
+#  | machine            | yes                     | gets a specific machine by uuid on an iNode                                             |
+#  | machine_readings   | yes                     | gets a specific machine by uuid with readings for a given time period                   |
+#  | create             | no                      | creates a machine on the iNode with the given details                                   |
+#  | start              | yes                     | sends an OS signal to start or powers on a specific macihine by uuid on the iNode       |
+#  | stop               | yes                     | sends an OS signal to stops or powers off a specific macihine by uuid on the iNode      |
+#  | restart            | yes                     | sends an OS signal to restarts a specific macihine by uuid on the iNode                 |
+#  | force_stop         | yes                     | stops a specific macihine by uuid on the iNode as if the power button were pressed      |
+#  | force_restart      | yes                     | same as force_stop excepts starts the machine back up after it is stopped               |
+#  | delete             | yes                     | deletes a specific machine by uuid on an iNode                                          |
+#  | update             | no                      | updates a specific machine by uuid on an iNode with the given details                   |
+#  | pause              | no                      |                                                                                         |
+#  | resume             | no                      |                                                                                         |
+#  | clone              | no                      |                                                                                         |
+#  | take_snapshot      | no                      |                                                                                         |
+#  | revert_to_snapshot | no                      |                                                                                         |
+#  |--------------------+-------------------------+-----------------------------------------------------------------------------------------|
 class Base::Capability < Main
   attr_accessor :name
 
