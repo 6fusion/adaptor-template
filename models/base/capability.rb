@@ -9,7 +9,7 @@
 #  | machines_readings  | yes                              |
 #  | machine            | yes                              |
 #  | machine_readings   | yes                              |
-#  | create             | yes                              |
+#  | create             | no                               |
 #  | start              | yes                              |
 #  | stop               | yes                              |
 #  | restart            | yes                              |
@@ -17,14 +17,12 @@
 #  | force_restart      | yes                              |
 #  | delete             | yes                              |
 #  | update             | no                               |
-#  | suspend            | no                               |
+#  | pause              | no                               |
 #  | resume             | no                               |
-#  | unplug             | no                               |
 #  | clone              | no                               |
 #  | take_snapshot      | no                               |
 #  | revert_to_snapshot | no                               |
 #  |--------------------+----------------------------------|
-#
 class Base::Capability < Main
   attr_accessor :name
 
