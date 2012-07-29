@@ -43,7 +43,7 @@ class Machine < Base::Machine
     machine
   end
 
-  def readings(inode, _since = Time.now.utc.beginning_of_month, _until = Time.now.utc)
+  def readings(inode, _interval = 300, _since = Time.now.utc.beginning_of_month, _until = Time.now.utc)
     logger.info('machine.readings')
 
     readings = Array.new

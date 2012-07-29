@@ -64,13 +64,14 @@ class Base::Machine < Main
 
   # This is where you would call your cloud service and
   # find a specific machine's readings.
-  # This request should support since (start_date) and until (end_date)
+  # This request should support interval (frequency), since (start_date), and until (end_date)
   #
   # @param [INode] inode iNode instance that defines where the action is to take place
+  # @param [Integer] _interval The frequency the readins should be return for the requested date range
   # @param [Time] _since The beginning date/time for the requested readings
   # @param [Time] _until The ending date/time for the requested readings
   # @return [Machine]
-  def readings(inode, _since = Time.now.utc.beginning_of_month, _until = Time.now.utc)
+  def readings(inode, _interval = 300, _since = Time.now.utc.beginning_of_month, _until = Time.now.utc)
     logger.info('machine.readings')
     raise Exceptions::NotImplemented
   end
