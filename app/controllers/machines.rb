@@ -85,6 +85,7 @@ AdaptorTemplate.controllers :machines, :map => "/inodes/:inode_uuid" do
     @machine = Machine.find_by_uuid(@inode, params[:uuid])
     @machine.delete(@inode)
 
+    status 204
     render 'machines/delete'
   end
 end
