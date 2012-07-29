@@ -1,4 +1,9 @@
 AdaptorTemplate.controllers :inodes, :priority => :low do
+  before do
+    logger.info('inodes#before')
+    content_type 'application/json'
+  end
+
   # Creates
   post :index do
     logger.info('POST - inodes#index')

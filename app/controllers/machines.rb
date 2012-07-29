@@ -1,5 +1,7 @@
 AdaptorTemplate.controllers :machines, :map => "/inodes/:inode_uuid" do
   before do
+    logger.info('machines#before')
+    content_type 'application/json'
     @inode = INode.find_by_uuid(params[:inode_uuid])
   end
 
@@ -66,10 +68,10 @@ AdaptorTemplate.controllers :machines, :map => "/inodes/:inode_uuid" do
   put :show, :map => 'machines/:uuid/force_stop' do
     logger.info('GET - machines.uuid#force_stop')
     @machine = Machine.find_by_uuid(@inode, params[:uuid]).force_stop(@inode)
-  
+
     render 'machines/show'
   end
- 
+
   put :show, :map => 'machines/:uuid/force_restart' do
     logger.info('GET - machines.uuid#force_restart')
     @machine = Machine.find_by_uuid(@inode, params[:uuid]).force_restart(@inode)
@@ -83,6 +85,6 @@ AdaptorTemplate.controllers :machines, :map => "/inodes/:inode_uuid" do
     @machine = Machine.find_by_uuid(@inode, params[:uuid])
     @machine.delete(@inode)
 
-    render 'machines/show'
+    render 'machines/delete'
   end
 end
