@@ -56,4 +56,11 @@ class Base::INode < Main
     inode_file_path = "#{PADRINO_ROOT}/data/#{uuid}.json"
     File.delete(inode_file_path) if File.exists?(inode_file_path)
   end
+
+  # should return an array of inode capabilities
+  #
+  # @return [Array]
+  def capabilities
+    Capability.all(uuid)
+  end
 end

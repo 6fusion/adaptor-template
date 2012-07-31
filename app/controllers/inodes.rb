@@ -8,9 +8,10 @@ AdaptorTemplate.controllers :inodes, :priority => :low do
   post :index do
     logger.info('POST - inodes#index')
 
-    uuid = params.delete('uuid')
-    inode = INode.new(params)
-    inode.save(uuid)
+    uuid = params['uuid']
+    @inode = INode.new(params)
+    @inode.save(uuid)
+    render 'indoes/show'
   end
 
   # Reads
@@ -21,9 +22,10 @@ AdaptorTemplate.controllers :inodes, :priority => :low do
 
     if params.present?
       uuid = params.delete('uuid')
-      inode = INode.find_by_uuid(uuid)
-      inode.update(uuid, params) if params.present?
+      @inode = INode.find_by_uuid(uuid)
+      @inode.update(uuid, params) if params.present?
     end
+    render 'inodes/show'
   end
 
   # Deletes
@@ -31,6 +33,9 @@ AdaptorTemplate.controllers :inodes, :priority => :low do
     logger.info('DELETE - inodes#index')
 
     uuid = params.delete('uuid')
-    inode.delete(uuid)
+    @inode = INode.find_by_uuid(uuid)
+    @inode.delete(uuid)
+    status 204
+    render 'inodes/delete'
   end
 end
