@@ -12,6 +12,7 @@ class Base::MachineDisk < Main
   validates :name,
     :presence => true
   validates :maximum_size,
+    :presence => true,
     :numericality => { :only_integer => true, :greater_than => 0 }
   validates :type,
     :inclusion => { :in => %(Disk CD) }
