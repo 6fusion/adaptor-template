@@ -112,7 +112,8 @@ class Machine < Base::Machine
         uuid:         "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaa#{i}",
         name:         "#{i}:My Fake Disk",
         maximum_size: 32*1024*1024,
-        type:         'Disk'
+        type:         'Disk',
+        thin:         'true',
       )
 
       machine_disks << machine_disk

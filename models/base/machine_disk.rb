@@ -3,7 +3,8 @@ class Base::MachineDisk < Main
   attr_accessor :uuid,
     :name,
     :maximum_size,
-    :type
+    :type,
+    :thin
 
   validates :uuid,
     :presence => true,
@@ -14,6 +15,8 @@ class Base::MachineDisk < Main
     :numericality => { :only_integer => true, :greater_than => 0 }
   validates :type,
     :inclusion => { :in => %(Disk CD) }
+  validates :thin,
+    :inclusion => { :in => %(true false)}
 
   # This is where you would call your cloud service and
   # find a specific machine's disk's readings.

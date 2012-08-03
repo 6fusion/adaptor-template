@@ -1,1 +1,1 @@
-attributes :uuid, :name, :maximum_size, :type
+attributes :uuid, :name, :maximum_size, :type, :thin
