@@ -15,7 +15,7 @@ class Base::Machine < Main
   #  |--------------------|
   #  | power_state        |
   #  |:-------------------|
-  #  | adding             |
+  #  | creating           |
   #  | restarting         |
   #  | starting           |
   #  | stopping           |
