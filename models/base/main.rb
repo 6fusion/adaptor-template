@@ -6,10 +6,12 @@ class Main
   include ActiveSupport::JSON
 
   def initialize(args)
-    if self.respond_to?("#{k}=".to_sym)
-      self.send("#{k}=", v)
-    else
-      instance_variable_set("@#{k}", v) unless v.nil?
+    args.each do |k, v|
+      if self.respond_to?("#{k}=".to_sym)
+        self.send("#{k}=", v)
+      else
+        instance_variable_set("@#{k}", v) unless v.nil?
+      end
     end
   end
 end

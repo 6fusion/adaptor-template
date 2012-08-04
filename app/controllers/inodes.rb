@@ -11,7 +11,7 @@ AdaptorTemplate.controllers :inodes, :priority => :low do
     uuid = params['uuid']
     @inode = INode.new(params)
     @inode.save(uuid)
-    render 'indoes/show'
+    render 'inodes/show'
   end
 
   # Reads
