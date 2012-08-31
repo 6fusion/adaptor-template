@@ -113,7 +113,7 @@ class Base::Machine < Main
     raise Exceptions::NotImplemented
   end
 
-  # This is where you would call your cloud service to create a new virtual machine
+  # This is where you would call your cloud service to update a virtual machine
   #
   # @param [INode] inode iNode instance that defines where the action is to take place
   # @return [nil]
@@ -129,5 +129,38 @@ class Base::Machine < Main
   def delete(inode)
     logger.info("machine.delete")
     raise Exceptions::NotImplemented
+  end
+
+  # Instantiate a set of Machine objects from an OVF descriptor
+  # NOTE: The OVF will be modified with Network and Disk mappings from
+  #   the 6fusion web console.  References to networks should reflect networks
+  #   actually available in the iNode rather than the original ones defined in
+  #   the OVF
+  # @param [String] ovf
+  # @return [Array<Machine>] one or more machines
+  def self.from_ovf(ovf)
+    logger.info('Machine.from_ovf')
+    raise Exceptions::NotImplemented
+  end
+
+  # This method will create new instance of a virtual machine
+  # The machine object should be populated with data from an OVF
+  # Requirements:
+  #   * If this method fails for any reason it should delete any
+  #     partially created machines and dependent objects (like disks)
+  #   * No IP address assignment should be done here
+  #   * This method is allowed take a long time to complete
+  #   * call Machine.find_by_uuid(uuid) or it's equivalent at the end of this method
+  #     and return it's value
+  # NOTE: the options hash is not currently populated with any data but it
+  #   may be used in the future to implement settings that are not captured
+  #   in the OVF file (e.g., tags and folders)
+  # @param [INode] inode
+  # @param [Hash] options
+  # @return [Machine] a new Machine representing the created machine
+  def create(inode, options)
+    logger.info("machine#create")
+    raise Exceptions::NotImplemented
+    # return Machine.find_by_uuid(inode, uuid_of_created_machine)
   end
 end

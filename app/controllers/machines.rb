@@ -5,13 +5,17 @@ AdaptorTemplate.controllers :machines, :map => "/inodes/:inode_uuid" do
     @inode = INode.find_by_uuid(params[:inode_uuid])
   end
 
-  # Creates
+  # Creates one or more machines from an OVF
+  # This action may take a long time to complete and will be called with a
+  # long timeout to give sufficient time for machine provisioning to complete
+  # @param ovf [String] raw xml from OVF
+  # @param options [Hash] extra options
   post :index do
     logger.info('POST - machines#index')
-    @machine = Machine.new(params)
-    @machine.save(@inode)
-
-    render 'machines/show'
+    @machines = Machine.from_ovf(params['ovf']).map do |vm|
+      vm.create(@inode, params['options'])
+    end
+    render 'machines/index'
   end
 
   # Reads
