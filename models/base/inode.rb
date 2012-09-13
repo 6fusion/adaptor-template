@@ -63,4 +63,13 @@ class Base::INode < Main
   def capabilities
     Capability.all(uuid)
   end
+
+  # This is where you would call your cloud service and
+  # get the collection of networks
+  #
+  # @return [Network]
+  def networks
+     logger.info('inode.networks')
+    raise Exceptions::NotImplemented
+  end
 end

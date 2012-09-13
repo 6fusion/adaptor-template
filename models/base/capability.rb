@@ -5,6 +5,7 @@
 #  |--------------------+-------------------------+-----------------------------------------------------------------------------------------|
 #  | capability         | currently supported     | description                                                                             |
 #  |:-------------------|:------------------------|:----------------------------------------------------------------------------------------|
+#  | inode              | yes                     | gets the inode configuration                                                            |
 #  | machines           | yes                     | gets a list of machines on the iNode                                                    |
 #  | machines_readings  | yes                     | gets a list of machines with readings for a given time period                           |
 #  | machine            | yes                     | gets machine by uuid on an iNode                                                        |
