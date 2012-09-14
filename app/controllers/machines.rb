@@ -5,9 +5,10 @@ AdaptorTemplate.controllers :machines, :map => "/inodes/:inode_uuid" do
     @inode = INode.find_by_uuid(params[:inode_uuid])
   end
 
-  # Creates one or more machines from an OVF
+  # Creates one or more machines from an OVF (called for 'add' capability)
   # This action may take a long time to complete and will be called with a
   # long timeout to give sufficient time for machine provisioning to complete
+  # The OVF will be modified to reflect the state of the inode (i.e, networks will already be mapped)
   # @param ovf [String] raw xml from OVF
   # @param options [Hash] extra options
   post :index do
