@@ -22,4 +22,10 @@ class INode < Base::INode
 
     super
   end
+
+  def networks
+    logger.info("INode.networks")
+
+    super
+  end
 end
