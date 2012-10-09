@@ -9,7 +9,7 @@
 #  | machines_readings  | yes                     | gets a list of machines with readings for a given time period                           |
 #  | machine            | yes                     | gets machine by uuid on an iNode                                                        |
 #  | machine_readings   | yes                     | gets machine by uuid with readings for a given time period                              |
-#  | create             | no                      | creates a machine on the iNode with the given details                                   |
+#  | add                | yes                     | creates a machine on the iNode with the given details                                   |
 #  | start              | yes                     | sends an OS signal to start or powers on a specific machine by uuid on the iNode        |
 #  | stop               | yes                     | sends an OS signal to stops or powers off a specific machine by uuid on the iNode       |
 #  | restart            | yes                     | sends an OS signal to restarts a specific machine by uuid on the iNode                  |
