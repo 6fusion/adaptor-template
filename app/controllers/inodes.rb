@@ -1,4 +1,4 @@
-AdaptorTemplate.controllers :inodes, :priority => :low do
+ AdaptorTemplate.controllers :inodes, :priority => :low do
   before do
     logger.info('inodes#before')
     content_type 'application/json'
@@ -37,5 +37,12 @@ AdaptorTemplate.controllers :inodes, :priority => :low do
     @inode.delete(uuid)
     status 204
     render 'inodes/delete'
+  end
+
+
+  # Gets
+  get :show, :map => 'inodes/:uuid' do
+    @inode = INode.find_by_uuid(params[:uuid])
+    render 'inodes/show'
   end
 end
