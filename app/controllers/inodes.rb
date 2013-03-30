@@ -1,4 +1,4 @@
-AdaptorOpenStack.controllers :inodes, :priority => :low do
+AdaptorTemplate.controllers :inodes, :priority => :low do
   before do
     logger.info('inodes#before')
     content_type 'application/json'

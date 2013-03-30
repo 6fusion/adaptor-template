@@ -1,4 +1,4 @@
-class AdaptorOpenStack < Padrino::Application
+class AdaptorTemplate < Padrino::Application
   register Padrino::Rendering
   register Padrino::Mailer
   register Padrino::Helpers
