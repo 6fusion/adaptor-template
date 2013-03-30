@@ -93,50 +93,50 @@ class Machine < Base::Machine
 
   private
   # Template Helper Method. Can be deleted
-  def self.build_system()
-    logger.info('Machine.build_system')
+  # def self.build_system()
+  #   logger.info('Machine.build_system')
 
-    MachineSystem.new(
-      architecture:     "x64",
-      operating_system: "Linux"
-    )
-  end
+  #   MachineSystem.new(
+  #     architecture:     "x64",
+  #     operating_system: "Linux"
+  #   )
+  # end
 
-  # Template Helper Method. Can be deleted
-  def self.build_disks()
-    logger.info('Machine.build_disks')
+  # # Template Helper Method. Can be deleted
+  # def self.build_disks()
+  #   logger.info('Machine.build_disks')
 
-    machine_disks = Array.new
-    1.upto(2) do |i|
-      machine_disk = MachineDisk.new(
-        uuid:         "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaa#{i}",
-        name:         "#{i}:My Fake Disk",
-        maximum_size: 32*1024*1024,
-        type:         'Disk',
-        thin:         'true',
-      )
+  #   machine_disks = Array.new
+  #   1.upto(2) do |i|
+  #     machine_disk = MachineDisk.new(
+  #       uuid:         "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaa#{i}",
+  #       name:         "#{i}:My Fake Disk",
+  #       maximum_size: 32*1024*1024,
+  #       type:         'Disk',
+  #       thin:         'true',
+  #     )
 
-      machine_disks << machine_disk
-    end
+  #     machine_disks << machine_disk
+  #   end
 
-    machine_disks
-  end
+  #   machine_disks
+  # end
 
-  # Template Helper Method. Can be deleted
-  def self.build_nics()
-    logger.info('Machine.build_nics')
+  # # Template Helper Method. Can be deleted
+  # def self.build_nics()
+  #   logger.info('Machine.build_nics')
 
-    machine_nics = Array.new
-    1.upto(2) do |i|
-      machine_nic = MachineNic.new(
-        uuid:        "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaa#{i}",
-        name:        "#{i}:My Fake Nic",
-        mac_address: "A0:B0:C0:D0:E0:F0:G0:H#{i}",
-        ip_address:  "192.168.1.#{i}"
-      )
+  #   machine_nics = Array.new
+  #   1.upto(2) do |i|
+  #     machine_nic = MachineNic.new(
+  #       uuid:        "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaa#{i}",
+  #       name:        "#{i}:My Fake Nic",
+  #       mac_address: "A0:B0:C0:D0:E0:F0:G0:H#{i}",
+  #       ip_address:  "192.168.1.#{i}"
+  #     )
 
-      machine_nics << machine_nic
-    end
+  #     machine_nics << machine_nic
+  #   end
 
     machine_nics
   end

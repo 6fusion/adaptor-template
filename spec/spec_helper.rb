@@ -9,5 +9,5 @@ def app
   ##
   # You can handle all padrino applications using instead:
   #   Padrino.application
-  AdaptorTemplate.tap { |app|  }
+  AdaptorOpenStack.tap { |app|  }
 end

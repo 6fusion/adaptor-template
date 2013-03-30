@@ -1,4 +1,4 @@
-AdaptorTemplate.controllers :capabilities, :map => "/inodes/:inode_uuid" do
+AdaptorOpenStack.controllers :capabilities, :map => "/inodes/:inode_uuid" do
   before do
     logger.info('capabilities#before')
     content_type 'application/json'
