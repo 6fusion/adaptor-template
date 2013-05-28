@@ -15,6 +15,35 @@ AdaptorTemplate.controllers :inodes, :priority => :low do
   end
 
   # Reads
+  get :index, :provides => [:json, :html] do
+    logger.info('inodes#index')
+
+    @inodes = INode.all()
+
+    case content_type
+    when :html then
+      content_type 'text/html'
+      render 'inodes/list'
+    else
+      render 'inodes/index'
+    end
+  end
+
+  get :show, "/inodes/:uuid", :provides => [:json, :html] do
+    logger.info('inodes#show')
+
+    @inode = INode.find_by_uuid(params[:uuid])
+
+    case content_type
+    when :html then
+      logger.info('DIAGNOSTICS - inodes#index')
+      content_type 'text/html'
+      render 'inodes/diagnostics'
+    else
+      content_type 'application/json'
+      render 'inodes/show'
+    end
+  end
 
   # Updates
   put :index do

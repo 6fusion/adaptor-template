@@ -1,8 +1,8 @@
-AdaptorTemplate.controllers :hosts, :map => "/inodes/:inode_uuid" do
+AdaptorTemplate.controllers :hosts, :parent => :inodes do
   before do
     logger.info('hosts#before')
     content_type 'application/json'
-    @inode = INode.find_by_uuid(params[:inode_uuid])
+    @inode = INode.find_by_uuid(params[:inode_id])
   end
 
   get :index do

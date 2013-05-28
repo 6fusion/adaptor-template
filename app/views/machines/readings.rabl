@@ -4,8 +4,8 @@ object @machine if @machine.present?
 extends 'machines/base'
 
 _interval = params[:interval].blank? ? 300 : params[:interval]
-_since = params[:since].blank? ? 5.minutes.ago.utc : params[:since]
-_until = params[:until].blank? ? Time.now.utc : params[:until]
+_since = params[:since].blank? ? 5.minutes.ago.utc : Time.iso8601(params[:since])
+_until = params[:until].blank? ? Time.now.utc : Time.iso8601(params[:until])
 
 child disks: :disks do
   extends 'machines/disks'

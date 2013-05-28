@@ -1,1 +1,1 @@
-attributes :uuid, :name, :mac_address, :ip_address
+attributes :uuid, :network_uuid, :name, :mac_address, :ip_address

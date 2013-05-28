@@ -1,6 +1,19 @@
 # @api public
 # This class file should not be modified if you don't understand what you're doing.
 class Base::INode < Main
+  # Should return details for all the iNodes configured
+  # @return [Array<INode>]
+  def all()
+    infrastructure_nodes = []
+    Dir["#{PADRINO_ROOT}/data/*.json"].each do |i|
+      temp = ActiveSupport::JSON.decode(IO.read(i))
+      infrastructure_nodes << INode.find_by_uuid(temp["uuid"])
+    end
+
+    return infrastructure_nodes
+  end
+
+
   # Should return details for a specific iNode
   #
   # @param [String] uuid The identifier for the iNode

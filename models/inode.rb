@@ -1,4 +1,10 @@
 class INode < Base::INode
+  def self.all()
+    logger.info("INode.all()")
+
+    super
+  end
+
   def self.find_by_uuid(uuid)
     logger.info("INode.find_by_uuid(#{uuid})")
 
